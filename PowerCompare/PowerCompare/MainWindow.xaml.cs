@@ -34,6 +34,10 @@ public partial class MainWindow : Window
         SliderPower.ValueChanged += SliderPower_ValueChanged;
         SliderAttackerPower.ValueChanged += SliderAttackerPower_ValueChanged;
         SliderDefenderPower.ValueChanged += SliderDefenderPower_ValueChanged;
+
+        SliderPower.Value = 200000;
+        SliderAttackerPower.Value = 200000;
+        SliderDefenderPower.Value = 200000;
     }
 
     private void SliderPower_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

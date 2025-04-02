@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Power Compare" Height="600" Width="1000"
+        Title="Power Compare" Height="540" Width="1280"
         Background="#121212"> <!-- Set dark background for the window -->
         
     <Window.Resources>
@@ -25,6 +25,7 @@
         <RowDefinition Height="Auto"/> <!-- Row for Label, TextBox, Label -->
         <RowDefinition Height="Auto"/> <!-- Row for Label, TextBox, Label -->
         <RowDefinition Height="Auto"/> <!-- Spacer row -->
+        <RowDefinition Height="Auto"/> <!-- Border row -->
         <RowDefinition Height="Auto"/> <!-- Spacer row -->
         <RowDefinition Height="Auto"/> <!-- Slider row -->
         <RowDefinition Height="Auto"/> <!-- Slider row -->
@@ -179,13 +180,15 @@
                Grid.Row="6"
                Grid.ColumnSpan="3"/>
     
-    <TextBlock Name="Row7Spacer"
+    <Border Background="Gray" Height="1" Grid.Row="7" Grid.ColumnSpan="3" Margin="5"/>
+    
+    <TextBlock Name="Row8Spacer"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                FontSize="16"
                Foreground="{StaticResource ForegroundBrush}"
                Margin="5"
-               Grid.Row="7"
+               Grid.Row="8"
                Grid.ColumnSpan="3"/>
     
     <Slider Name="SliderAttackerPower"
@@ -197,7 +200,7 @@
             VerticalAlignment="Top"
             Height="40"
             Margin="10"
-            Grid.Row="8"
+            Grid.Row="9"
             Grid.ColumnSpan="2"/>
     
     <TextBlock Name="LabelAttackerPower"
@@ -208,7 +211,7 @@
                Text="Attacker Power"
                TextWrapping="Wrap"
                Margin="5"
-               Grid.Row="8"
+               Grid.Row="9"
                Grid.Column="2"/>
     
     <Slider Name="SliderDefenderPower"
@@ -220,7 +223,7 @@
             VerticalAlignment="Top"
             Height="40"
             Margin="10"
-            Grid.Row="9"
+            Grid.Row="10"
             Grid.ColumnSpan="2"/>
     
     <TextBlock Name="LabelDefenderPower"
@@ -231,7 +234,7 @@
                Text="Defender Power"
                TextWrapping="Wrap"
                Margin="5"
-               Grid.Row="9"
+               Grid.Row="10"
                Grid.Column="2"/>
     
     <TextBlock Name="LabelAttackerVsDefender"
@@ -242,7 +245,7 @@
                Text="Attacker vs Defender"
                TextWrapping="Wrap"
                Margin="5"
-               Grid.Row="10"
+               Grid.Row="11"
                Grid.ColumnSpan="3"/>
 </Grid>
 
