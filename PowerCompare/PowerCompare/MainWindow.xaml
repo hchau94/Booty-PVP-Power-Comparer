@@ -24,6 +24,11 @@
         <RowDefinition Height="Auto"/> <!-- Slider row -->
         <RowDefinition Height="Auto"/> <!-- Row for Label, TextBox, Label -->
         <RowDefinition Height="Auto"/> <!-- Row for Label, TextBox, Label -->
+        <RowDefinition Height="Auto"/> <!-- Spacer row -->
+        <RowDefinition Height="Auto"/> <!-- Spacer row -->
+        <RowDefinition Height="Auto"/> <!-- Slider row -->
+        <RowDefinition Height="Auto"/> <!-- Slider row -->
+        <RowDefinition Height="Auto"/> <!-- Row for Label -->
     </Grid.RowDefinitions>
 
     <!-- Define ColumnDefinitions -->
@@ -164,6 +169,81 @@
                Margin="5"
                Grid.Row="5"
                Grid.Column="2"/>
+    
+    <TextBlock Name="Row6Spacer"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Margin="5"
+               Grid.Row="6"
+               Grid.ColumnSpan="3"/>
+    
+    <TextBlock Name="Row7Spacer"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Margin="5"
+               Grid.Row="7"
+               Grid.ColumnSpan="3"/>
+    
+    <Slider Name="SliderAttackerPower"
+            Minimum="100000"
+            Maximum="1000000"
+            TickFrequency="1000"
+            IsSnapToTickEnabled="True"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Height="40"
+            Margin="10"
+            Grid.Row="8"
+            Grid.ColumnSpan="2"/>
+    
+    <TextBlock Name="LabelAttackerPower"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Text="Attacker Power"
+               TextWrapping="Wrap"
+               Margin="5"
+               Grid.Row="8"
+               Grid.Column="2"/>
+    
+    <Slider Name="SliderDefenderPower"
+            Minimum="100000"
+            Maximum="1000000"
+            TickFrequency="1000"
+            IsSnapToTickEnabled="True"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Height="40"
+            Margin="10"
+            Grid.Row="9"
+            Grid.ColumnSpan="2"/>
+    
+    <TextBlock Name="LabelDefenderPower"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Text="Defender Power"
+               TextWrapping="Wrap"
+               Margin="5"
+               Grid.Row="9"
+               Grid.Column="2"/>
+    
+    <TextBlock Name="LabelAttackerVsDefender"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Text="Attacker vs Defender"
+               TextWrapping="Wrap"
+               Margin="5"
+               Grid.Row="10"
+               Grid.ColumnSpan="3"/>
 </Grid>
 
 </Window>
