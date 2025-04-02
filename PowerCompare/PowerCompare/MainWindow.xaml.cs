@@ -13,8 +13,12 @@ namespace PowerCompare;
 
 public partial class MainWindow : Window
 {
-    private readonly string _youIfText = $"---------- If your power is ---------->";
-    private readonly string _themIfText = "<---------- If their power is ----------";
+    private readonly string _youIfText = "If your power is:";
+    private readonly string _themIfText = "If their power is:";
+    private readonly string _youLowerThenText = "Then they need to cook a team of at least this power to attack you:";
+    private readonly string _themLowerThenText = "Then you need to cook a team of at least this power to attack them:";
+    private readonly string _youHigherThenText = "Then you can attack teams up to this power:";
+    private readonly string _themHigherThenText = "Then you need more than this power to start overpowering them:";
     
     public MainWindow()
     {
@@ -22,6 +26,10 @@ public partial class MainWindow : Window
 
         LabelSelectedPowerL.Text = _youIfText;
         LabelSelectedPowerR.Text = _themIfText;
+        LabelLowerPowerL.Text = _youLowerThenText;
+        LabelLowerPowerR.Text = _themLowerThenText;
+        LabelHigherPowerL.Text = _youHigherThenText;
+        LabelHigherPowerR.Text = _themHigherThenText;
         
         SliderPower.ValueChanged += SliderPower_ValueChanged;
     }
@@ -29,5 +37,39 @@ public partial class MainWindow : Window
     private void SliderPower_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
     {
         TextBoxSelectedPower.Text = e.NewValue.ToString("n0");
+        TextBoxLowerPower.Text = GetLowerPowerValue(e.NewValue).ToString("n0");
+        TextBoxHigherPower.Text = GetHigherPowerValue(e.NewValue).ToString("n0");
+    }
+
+    /// <summary>
+    /// Rounded to nearest thousand.
+    /// </summary>
+    private double GetLowerPowerValue(double selectedValue)
+    {
+        return Math.Round((selectedValue * 0.846)/ 1000) * 1000;
+    }
+    
+    /// <summary>
+    /// Rounded to nearest thousand.
+    /// </summary>
+    private double GetHigherPowerValue(double selectedValue)
+    {
+        return Math.Round((selectedValue / 0.846) / 1000)  * 1000;
+    }
+    
+    /// <summary>
+    /// Rounded to nearest thousand.
+    /// </summary>
+    private double GetPowerPenalty(double attackerPower, double defenderPower)
+    {
+        if (attackerPower > defenderPower) { return 0; }
+        
+        var ratio = (attackerPower / defenderPower);
+        if (ratio > 0.846) { return 0; }
+        
+        var penaltyPercentage = 20 + ((ratio - 0.846) * -1 * 100 * 2.7);
+        return Math.Round(penaltyPercentage);
+        
+        return 0;
     }
 }
