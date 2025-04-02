@@ -3,10 +3,88 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PowerCompare"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Power Compare" Height="300" Width="500"
+        Background="#121212"> <!-- Set dark background for the window -->
+        
+    <Window.Resources>
+        <!-- Dark Mode Resources -->
+        <SolidColorBrush x:Key="WindowBackground" Color="#121212"/>
+        <SolidColorBrush x:Key="ForegroundBrush" Color="White"/>
+        <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#333333"/>
+        <SolidColorBrush x:Key="ControlBackgroundBrush" Color="#1E1E1E"/>
+    </Window.Resources>
 
+    <Grid Margin="10">
+        
+        <!-- Define RowDefinitions for the layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- TextBlock as spacer -->
+            <RowDefinition Height="Auto"/> <!-- TextBlock as spacer-->
+            <RowDefinition Height="Auto"/> <!-- TextBlock above the slider -->
+            <RowDefinition Height="Auto"/> <!-- Slider row -->
+            <RowDefinition Height="Auto"/> <!-- TextBlock label row below -->
+            <RowDefinition Height="Auto"/> <!-- TextBlock label row below -->
+        </Grid.RowDefinitions>
+        
+        <!-- TextBox above the Slider -->
+        <TextBlock Name="Row0Spacer"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="16"
+                   Foreground="{StaticResource ForegroundBrush}"
+                   Margin="5"
+                   Grid.Row="0"/>
+        
+        <!-- TextBox above the Slider -->
+        <TextBlock Name="Row1Spacer"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="16"
+                   Foreground="{StaticResource ForegroundBrush}"
+                   Margin="5"
+                   Grid.Row="1"/>
+
+        <!-- TextBox above the Slider -->
+        <TextBlock Name="LabelSelectedPower"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="16"
+                   Foreground="{StaticResource ForegroundBrush}"
+                   Text="Test 0: 0"
+                   Margin="5"
+                   Grid.Row="2"/>
+        
+        <!-- Slider: Stretch horizontally across the window -->
+        <Slider Name="SliderPower"
+                Minimum="100000"
+                Maximum="1000000"
+                TickFrequency="1000"
+                IsSnapToTickEnabled="True"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                Height="40"
+                Margin="10" 
+                Grid.Row="3"/>
+        
+        <!-- Test 1 label, stacked below the slider -->
+        <TextBlock Name="LabelLowerPower"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="16"
+                   Foreground="{StaticResource ForegroundBrush}"
+                   Text="Test 1: 0"
+                   Margin="5"
+                   Grid.Row="4"/>
+        
+        <!-- Test 2 label, stacked below Test 1 -->
+        <TextBlock Name="LabelHigherPower"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="16"
+                   Foreground="{StaticResource ForegroundBrush}"
+                   Text="Test 2: 0"
+                   Margin="5"
+                   Grid.Row="5"/>
     </Grid>
 </Window>
