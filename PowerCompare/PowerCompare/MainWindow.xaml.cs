@@ -1,13 +1,5 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+﻿using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PowerCompare;
 
@@ -78,7 +70,7 @@ public partial class MainWindow : Window
     }
 
     /// <summary>
-    /// Rounded to nearest thousand.
+    /// Rounded to the nearest thousand.
     /// </summary>
     private double GetLowerPowerValue(double selectedValue)
     {
@@ -86,7 +78,7 @@ public partial class MainWindow : Window
     }
     
     /// <summary>
-    /// Rounded to nearest thousand.
+    /// Rounded to the nearest thousand.
     /// </summary>
     private double GetHigherPowerValue(double selectedValue)
     {
@@ -102,7 +94,5 @@ public partial class MainWindow : Window
         
         var penaltyPercentage = 20 + ((ratio - 0.846) * -1 * 100 * 2.7);
         return Math.Round(penaltyPercentage);
-        
-        return 0;
     }
 }
