@@ -13,20 +13,21 @@ namespace PowerCompare;
 
 public partial class MainWindow : Window
 {
+    private readonly string _youIfText = $"---------- If your power is ---------->";
+    private readonly string _themIfText = "<---------- If their power is ----------";
+    
     public MainWindow()
     {
         InitializeComponent();
-        SliderPower.ValueChanged += SliderValue_ValueChanged;
+
+        LabelSelectedPowerL.Text = _youIfText;
+        LabelSelectedPowerR.Text = _themIfText;
+        
+        SliderPower.ValueChanged += SliderPower_ValueChanged;
     }
 
-    private void SliderValue_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    private void SliderPower_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
     {
-        // TODO: actually implement logic here rather than the sample given below
-        
-        
-        LabelLowerPower.Text = $"Test 1: { (int)SliderPower.Value }";
-
-        int test2Value = (int)(SliderPower.Value * 0.5);
-        LabelHigherPower.Text = $"Test 2: { test2Value }";
+        TextBoxSelectedPower.Text = e.NewValue.ToString("n0");
     }
 }

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Power Compare" Height="300" Width="500"
+        Title="Power Compare" Height="600" Width="1000"
         Background="#121212"> <!-- Set dark background for the window -->
         
     <Window.Resources>
@@ -16,75 +16,150 @@
     </Window.Resources>
 
     <Grid Margin="10">
-        
-        <!-- Define RowDefinitions for the layout -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!-- TextBlock as spacer -->
-            <RowDefinition Height="Auto"/> <!-- TextBlock as spacer-->
-            <RowDefinition Height="Auto"/> <!-- TextBlock above the slider -->
-            <RowDefinition Height="Auto"/> <!-- Slider row -->
-            <RowDefinition Height="Auto"/> <!-- TextBlock label row below -->
-            <RowDefinition Height="Auto"/> <!-- TextBlock label row below -->
-        </Grid.RowDefinitions>
-        
-        <!-- TextBox above the Slider -->
-        <TextBlock Name="Row0Spacer"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="16"
-                   Foreground="{StaticResource ForegroundBrush}"
-                   Margin="5"
-                   Grid.Row="0"/>
-        
-        <!-- TextBox above the Slider -->
-        <TextBlock Name="Row1Spacer"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="16"
-                   Foreground="{StaticResource ForegroundBrush}"
-                   Margin="5"
-                   Grid.Row="1"/>
+    <!-- Define RowDefinitions for the layout -->
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/> <!-- Spacer row -->
+        <RowDefinition Height="Auto"/> <!-- Spacer row -->
+        <RowDefinition Height="Auto"/> <!-- Row for Label, TextBox, Label -->
+        <RowDefinition Height="Auto"/> <!-- Slider row -->
+        <RowDefinition Height="Auto"/> <!-- Row for Label, TextBox, Label -->
+        <RowDefinition Height="Auto"/> <!-- Row for Label, TextBox, Label -->
+    </Grid.RowDefinitions>
 
-        <!-- TextBox above the Slider -->
-        <TextBlock Name="LabelSelectedPower"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="16"
-                   Foreground="{StaticResource ForegroundBrush}"
-                   Text="Test 0: 0"
-                   Margin="5"
-                   Grid.Row="2"/>
-        
-        <!-- Slider: Stretch horizontally across the window -->
-        <Slider Name="SliderPower"
-                Minimum="100000"
-                Maximum="1000000"
-                TickFrequency="1000"
-                IsSnapToTickEnabled="True"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Top"
-                Height="40"
-                Margin="10" 
-                Grid.Row="3"/>
-        
-        <!-- Test 1 label, stacked below the slider -->
-        <TextBlock Name="LabelLowerPower"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="16"
-                   Foreground="{StaticResource ForegroundBrush}"
-                   Text="Test 1: 0"
-                   Margin="5"
-                   Grid.Row="4"/>
-        
-        <!-- Test 2 label, stacked below Test 1 -->
-        <TextBlock Name="LabelHigherPower"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="16"
-                   Foreground="{StaticResource ForegroundBrush}"
-                   Text="Test 2: 0"
-                   Margin="5"
-                   Grid.Row="5"/>
-    </Grid>
+    <!-- Define ColumnDefinitions -->
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/> <!-- Left Label -->
+        <ColumnDefinition Width="Auto"/>    <!-- Center TextBox -->
+        <ColumnDefinition Width="*"/> <!-- Right Label -->
+    </Grid.ColumnDefinitions>
+
+    <!-- Spacer Row 0 -->
+    <TextBlock Name="Row0Spacer"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Margin="5"
+               Grid.Row="0"
+               Grid.ColumnSpan="3"/>
+
+    <!-- Spacer Row 1 -->
+    <TextBlock Name="Row1Spacer"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Margin="5"
+               Grid.Row="1"
+               Grid.ColumnSpan="3"/>
+
+    <!-- Row for Label, TextBox, Label -->
+    <TextBlock Name="LabelSelectedPowerL"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Text="LabelSelectedPowerL"
+               TextWrapping="Wrap"
+               Margin="5"
+               Grid.Row="2"
+               Grid.Column="0"/>
+
+    <TextBox Name="TextBoxSelectedPower"
+             Width="200"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+             TextAlignment="Center"
+             FontSize="16"
+             Margin="5"
+             Grid.Row="2"
+             Grid.Column="1"/>
+
+    <TextBlock Name="LabelSelectedPowerR"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Text="LabelSelectedPowerR"
+               TextWrapping="Wrap"
+               Margin="5"
+               Grid.Row="2"
+               Grid.Column="2"/>
+
+    <!-- Slider: Stretch horizontally across the window -->
+    <Slider Name="SliderPower"
+            Minimum="100000"
+            Maximum="1000000"
+            TickFrequency="1000"
+            IsSnapToTickEnabled="True"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Height="40"
+            Margin="10"
+            Grid.Row="3"
+            Grid.ColumnSpan="3"/>
+
+    <!-- Row for Label, TextBox, Label -->
+    <TextBlock Name="LabelLowerPowerL"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Text="LabelLowerPowerL"
+               Margin="5"
+               Grid.Row="4"
+               Grid.Column="0"/>
+
+    <TextBox Name="TextBoxLowerPower"
+             Width="200"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+             TextAlignment="Center"
+             FontSize="16"
+             Margin="5"
+             Grid.Row="4"
+             Grid.Column="1"/>
+
+    <TextBlock Name="LabelLowerPowerR"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Text="LabelLowerPowerR"
+               Margin="5"
+               Grid.Row="4"
+               Grid.Column="2"/>
+
+    <!-- Row for Label, TextBox, Label -->
+    <TextBlock Name="LabelHigherPowerL"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Text="LabelHigherPowerL"
+               Margin="5"
+               Grid.Row="5"
+               Grid.Column="0"/>
+
+    <TextBox Name="TextBoxHigherPower"
+             Width="200"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+             TextAlignment="Center"
+             FontSize="16"
+             Margin="5"
+             Grid.Row="5"
+             Grid.Column="1"/>
+
+    <TextBlock Name="LabelHigherPowerR"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               FontSize="16"
+               Foreground="{StaticResource ForegroundBrush}"
+               Text="LabelHigherPowerR"
+               Margin="5"
+               Grid.Row="5"
+               Grid.Column="2"/>
+</Grid>
+
 </Window>
