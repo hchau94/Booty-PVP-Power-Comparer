@@ -1,0 +1,6 @@
+# Ignore bin and obj directories (commonly used in .NET)
+bin/
+obj/
+
+# Ignore .idea folder (used by JetBrains IDEs like IntelliJ, WebStorm, PyCharm, etc.)
+.idea/
