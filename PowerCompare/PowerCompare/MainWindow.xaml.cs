@@ -93,6 +93,7 @@ public partial class MainWindow : Window
         if (ratio > 0.846) { return 0; }
         
         var penaltyPercentage = 20 + ((ratio - 0.846) * -1 * 100 * 2.7);
+        if (penaltyPercentage > 90) { penaltyPercentage = 90; }
         return Math.Round(penaltyPercentage);
     }
 }
